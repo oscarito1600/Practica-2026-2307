@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica: Módulo y clases en JS</title>
+</head>
+
+<body>
+    <h2>Práctica: Módulo y clases en JS</h2>
+    <button type="button" id="btnEncender">Encender</button>
+    <button type="button" id="btnTocarBocina">Tocar Bocina</button>
+    <button type="button" id="btnMath">Ejemplo de modulo math</button>
+    <div id="divOutput">Haz clic en un boton ....</div>
+    <script type="module">
+        import  {Coche}  from './vehiculo.js';
+        import {PI,sumar } from './math.js';
+        const miCoche = new Coche("Toyota", "Corolla", 4);
+
+        const btnEncender = document.querySelector("#btnEncender");
+        const btnTocarBocina = document.querySelector("#btnTocarBocina");
+        const btnMath = document.querySelector("#btnMath");
+        const divOutput = document.querySelector("#divOutput");
+
+        btnEncender.addEventListener("click", () => {
+            divOutput.textContent = miCoche.encender();
+        });
+        btnTocarBocina.addEventListener("click", () => {
+            divOutput.textContent = miCoche.tocarBocina();
+        });
+        btnMath.addEventListener("click", () => {
+            const suma = sumar(10, 2);
+            divOutput.textContent = ` math suma:${suma} PI: ${PI}`;
+        });
+    </script>
+</body>
+
+</html>
