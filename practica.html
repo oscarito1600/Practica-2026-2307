@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+</head>
+
+<body>
+
+    <h1>Ejemplo Combinado: Composición de Operaciones</h1>
+    <div id="divOutput">Esperando datos ...</div>
+
+    <script>
+        const divOutput = document.querySelector("#divOutput");
+
+        const productos = [
+            { nombre: 'Laptop', precio: 1000, categoria: 'Tech', impuesto: 0.13 },
+            { nombre: 'Mouse', precio: 25, categoria: 'Tech', impuesto: 0.15 },
+            { nombre: 'Silla', precio: 1, categoria: 'Muebles', impuesto: 0.20 }
+        ];
+
+        // Obtener el costo total con IVA (15%) de productos de Tech
+        const totalTechConIVA = productos
+            .filter(p => p.categoria === 'Tech')
+            .map(p => p.precio * 1.13)
+            .reduce((acc, precio) => acc + precio, 0);
+
+        console.log(totalTechConIVA);
+        divOutput.textContent = `Total iva ${totalTechConIVA}`;
+
+        const productos2 = productos.map(p => ({
+            nombre: p.nombre,
+            precio: p.precio
+        }));
+        console.log(productos2);
+
+        const producto3 = productos.map(p => ({
+            ...p,
+            precioMasImpuesto: p.precio * p.impuesto
+        }));
+        console.log(producto3);
+    </script>
+
+</body>
+</html>
