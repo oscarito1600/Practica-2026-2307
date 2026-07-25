@@ -1,12 +1,21 @@
 class Vehiculo {
     constructor(marca,modelo) {
-        this.marca=marca;
+        this._marca=marca;
         this.modelo= modelo;
         this.encendido=false;
     }
     encender(){
         this.encendido=true;
         return `El ${this.marca} ${this.modelo} se ha encendido.`;
+    }
+    get marca(){
+        return this._marca.toUpperCase();
+    }
+    set marca(x){
+        if (x.trim() == ""){
+            throw new Error("La marca es obligatoria ");
+        }
+        this._marca=x;
     }
 }
 export  class Coche extends Vehiculo{

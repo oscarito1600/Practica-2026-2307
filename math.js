@@ -2,12 +2,14 @@ const PI=3.1416;
 function sumar(a,b) {
     return a+b;
 }
-export function restar(a,b) {
+function restar(a,b) {
     return a-b;
 }
-export function multiplicar(a,b) {
+function multiplicar(a,b) {
     return a*b;
 }
-export  function dividir(a,b) {
+function dividir(a,b) {
     return a/b;
 }
+export default sumar;
+//export {PI,sumar,restar,multiplicar,dividir};

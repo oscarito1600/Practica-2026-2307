@@ -14,11 +14,9 @@
     <button type="button" id="btnMath">Ejemplo de modulo math</button>
     <div id="divOutput">Haz clic en un boton ....</div>
     <script type="module">
-       import  {Coche}  from './vehiculo.js';
-        import {PI,sumar } from './math.js';
         import { Coche } from './vehiculo.js';
-        import { PI, sumar } from './math.js';
-
+        import sumar from './math.js';
+        const miCoche = new Coche("Toyota", "Corolla", 4);        
         const btnEncender = document.querySelector("#btnEncender");
         const btnTocarBocina = document.querySelector("#btnTocarBocina");
         const btnMath = document.querySelector("#btnMath");
@@ -32,7 +30,7 @@
         });
         btnMath.addEventListener("click", () => {
             const suma = sumar(10, 2);
-            divOutput.textContent = ` math suma:${suma} PI: ${PI}`;
+            divOutput.textContent = ` math suma:${suma} `;
         });
     </script>
 </body>
